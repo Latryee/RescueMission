@@ -74,7 +74,7 @@ public class RescueMission {
                 menuChoice = scanner.nextInt();
                 scanner.nextLine();
             } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a number between 1 and 4.");
+                System.out.println("Invalid number. Please enter a number between 1 and 4.");
                 scanner.nextLine();
                 continue;
             }
@@ -136,7 +136,7 @@ public class RescueMission {
                     initialFuel = 100;
                 }
                 else {
-                    System.out.println("Invalid difficulty selected. Please try again.");
+                    System.out.println("Invalid difficulty selected. Please try again. ");
 
                     continue;
                 }
@@ -273,7 +273,7 @@ public class RescueMission {
 
                 System.out.println("Game area: " + gameAreaSize + "x" + gameAreaSize);
 
-                System.out.println("Survivors to rescue: " + numSurvivors);
+                System.out.println("Survivors to find: " + numSurvivors);
 
                 System.out.println("Hazards to avoid: " + numHazards);
 
@@ -313,9 +313,9 @@ public class RescueMission {
 
                 long startTime = System.currentTimeMillis();
 
-                System.out.println("\nGame started! Initial position: (" + currentX + "," + currentY + ")");
+                System.out.println("\nGame started! First position: (" + currentX + "," + currentY + ")");
 
-                System.out.println("Use W/A/S/D to move (W=Up, S=Down, A=Left, D=Right)");
+                System.out.println("Use W/A/S/D to move (W=to move Up, S=to move Down, A=to move Left, D=to move Right)");
 
 
                 while (currentFuel > 0 && survivorsRescued < numSurvivors) {
@@ -324,7 +324,7 @@ public class RescueMission {
 
                     System.out.println("Fuel remaining: " + currentFuel + " liters");
 
-                    System.out.println("Survivors rescued: " + survivorsRescued + "/" + numSurvivors);
+                    System.out.println("Survivors found: " + survivorsRescued + "/" + numSurvivors);
 
                     System.out.println("Score: " + score);
 
@@ -352,7 +352,7 @@ public class RescueMission {
                         newX = currentX + 1;
                     } else {
 
-                        System.out.println("Invalid move! Use W/A/S/D.");
+                        System.out.println("Invalid key! Use W/A/S/D.");
 
                         continue;
                     }
@@ -503,36 +503,36 @@ public class RescueMission {
                 int seconds = elapsedSeconds % 60;
 
 
-                System.out.println("\n************ GAME OVER ************");
+                System.out.println("\n************ GAME IS OVER ************");
                 if (survivorsRescued == numSurvivors) {
 
-                    System.out.println("CONGRATULATIONS " + playerName + "! Mission Accomplished!");
+                    System.out.println("CONGRATULATIONS " + playerName + "Mission Succesful !");
 
 
                     int bonusPoints = currentFuel / 10;
 
                     score += bonusPoints;
 
-                    System.out.println("Bonus points for remaining fuel: +" + bonusPoints);
+                    System.out.println("Bonus points for remaining fuels: +" + bonusPoints);
                 } else {
 
-                    System.out.println("Mission Failed! Better luck next time, " + playerName + "!");
+                    System.out.println("Mission Failed! Better luck next time,Stay Determined " + playerName + "!");
                 }
 
 
-                System.out.println("\nFinal Statistics:");
+                System.out.println("\nFinal Stats:");
 
-                System.out.println("Time taken: " + minutes + " minutes " + seconds + " seconds");
+                System.out.println("Time taken while you played: " + minutes + " minutes " + seconds + " seconds");
 
                 System.out.println("Total moves: " + totalMoves);
 
                 System.out.println("Fuel consumed: " + (initialFuel - currentFuel) + " liters");
 
-                System.out.println("Survivors rescued: " + survivorsRescued + "/" + numSurvivors);
+                System.out.println("Survivors found: " + survivorsRescued + "/" + numSurvivors);
 
                 System.out.println("Hazards encountered: " + hazardsEncountered);
 
-                System.out.println("Final score: " + score + " points");
+                System.out.println("Final score is: " + score + " points");
 
 
 
@@ -556,7 +556,7 @@ public class RescueMission {
             }
             else if (menuChoice == 4) {
 
-                System.out.println("\nThanks for playing Rescue Mission!");
+                System.out.println("\nThanks for playing Rescue Mission");
 
                 System.out.println("Goodbye, " + playerName + "!");
 
@@ -564,7 +564,7 @@ public class RescueMission {
             }
             else {
 
-                System.out.println("Invalid choice! Please select a number between 1 and 4.");
+                System.out.println("Invalid number! Please select a number between 1 and 4.");
             }
         }
 
