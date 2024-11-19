@@ -309,7 +309,7 @@ public class RescueMission {
 
             else if (selectmenu == 3) {
 
-                if (!difficultyset) {
+                if (difficultyset == false) {
 
                     System.out.println("Please set game difficulty first!!");
 
