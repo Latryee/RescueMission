@@ -105,7 +105,7 @@ public class RescueMission {
 
             if (selectmenu == 1) {
                 System.out.println("Please enter your user name:");
-                scanner.nextLine();
+                
                 nameofuser = scanner.nextLine();
                 System.out.println("Name changed to: " + nameofuser);
             }
