@@ -7,31 +7,20 @@ public class RescueMission {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-
-
         String nameofuser = "Player";
 
         int selectmenu = 0;
-
 
         boolean difficultyset = false;
 
         boolean gameisrunning = true;
 
-
         int sizeofarea = 0;
-
         int survivornumber = 0;
-
         int hazadrnumber = 0;
-
         int movementcost = 0;
-
         int rescuepoints = 0;
-
         int firstfuel = 0;
-
-
         int survivor1X = -1;
         int survivor1Y = -1;
         int survivor1Found = 0;
@@ -47,31 +36,21 @@ public class RescueMission {
         int survivor5X = -1;
         int survivor5Y = -1;
         int survivor5Found = 0;
-
-
         int hazard1X = -1;
         int hazard1Y = -1;
-
         int hazard2X = -1;
-
         int hazard2Y = -1;
         int hazard3X = -1;
-
         int hazard3Y = -1;
-
         int hazard4X = -1;
         int hazard4Y = -1;
-
         int hazard5X = -1;
         int hazard5Y = -1;
-
         int hazard6X = -1;
         int hazard6Y = -1;
-
         int hazard7X = -1;
         int hazard7Y = -1;
         int hazard8X = -1;
-
         int hazard8Y = -1;
         int hazard9X = -1;
         int hazard9Y = -1;
@@ -79,21 +58,14 @@ public class RescueMission {
         int hazard10Y = -1;
 
         while (gameisrunning) {
-
             System.out.println("\n****** Welcome to Rescue Mission Game! *******");
-
             System.out.println("Please select an choice:");
-
             System.out.println("1) Change your name");
-
             System.out.println("2) Set game difficulty");
-
             System.out.println("3) Start game");
-
             System.out.println("4) Exit game");
 
             selectmenu = scanner.nextInt();
-
             scanner.nextLine();
 
 
@@ -105,43 +77,29 @@ public class RescueMission {
 
             if (selectmenu == 1) {
                 System.out.println("Please enter your user name:");
-                
                 nameofuser = scanner.nextLine();
                 System.out.println("Name changed to: " + nameofuser);
             }
             else if (selectmenu == 2) {
-
-
                 System.out.println("Please select the game difficulty:");
-
                 System.out.println("E) Easy");
-
                 System.out.println("M) Medium");
-
                 System.out.println("H) Hard");
 
                 char difficulty = scanner.nextLine().toUpperCase().charAt(0);
 
                 if (difficulty == 'E') {
-
                     sizeofarea = 10;
-
                     survivornumber = 3;
-
                     hazadrnumber = 5;
-
                     movementcost = 2;
-
                     rescuepoints = 5;
-
                     firstfuel = 150;
                 }
                 else if (difficulty == 'M') {
                     sizeofarea = 15;
-
                     survivornumber = 4;
                     hazadrnumber = 8;
-
                     movementcost = 3;
                     rescuepoints = 10;
                     firstfuel = 120;
@@ -149,17 +107,13 @@ public class RescueMission {
                 else if (difficulty == 'H') {
                     sizeofarea = 20;
                     survivornumber = 5;
-
                     hazadrnumber = 10;
-
                     movementcost = 5;
-
                     rescuepoints = 15;
                     firstfuel = 100;
                 }
                 else {
                     System.out.println("Invalid difficulty selected. Please try again. (Use E for Easy, M for Medium, H for Hard) ");
-
                     continue;
                 }
 
@@ -167,11 +121,9 @@ public class RescueMission {
                 survivor1X = (int) (Math.random() * sizeofarea);
                 survivor1Y = (int) (Math.random() * sizeofarea);
                 while (survivor1X == 0 && survivor1Y == 0) {
-
                     survivor1X = (int) (Math.random() * sizeofarea);
                     survivor1Y = (int) (Math.random() * sizeofarea);
                 }
-
 
                 survivor2X = (int) (Math.random() * sizeofarea);
 
@@ -180,7 +132,6 @@ public class RescueMission {
                         (survivor2X == survivor1X && survivor2Y == survivor1Y)) {
 
                     survivor2X = (int) (Math.random() * sizeofarea);
-
                     survivor2Y = (int) (Math.random() * sizeofarea);
                 }
 
@@ -193,22 +144,19 @@ public class RescueMission {
                         (survivor3X == survivor2X && survivor3Y == survivor2Y)) {
 
                     survivor3X = (int) (Math.random() * sizeofarea);
-
                     survivor3Y = (int) (Math.random() * sizeofarea);
                 }
 
                 if (survivornumber > 3) {
-
                     survivor4X = (int) (Math.random() * sizeofarea);
-
                     survivor4Y = (int) (Math.random() * sizeofarea);
+
                     while ((survivor4X == 0 && survivor4Y == 0) ||
                             (survivor4X == survivor1X && survivor4Y == survivor1Y) ||
                             (survivor4X == survivor2X && survivor4Y == survivor2Y) ||
                             (survivor4X == survivor3X && survivor4Y == survivor3Y)) {
 
                         survivor4X = (int) (Math.random() * sizeofarea);
-
                         survivor4Y = (int) (Math.random() * sizeofarea);
                     }
                 }
@@ -216,8 +164,8 @@ public class RescueMission {
                 if (survivornumber > 4) {
 
                     survivor5X = (int) (Math.random() * sizeofarea);
-
                     survivor5Y = (int) (Math.random() * sizeofarea);
+
                     while ((survivor5X == 0 && survivor5Y == 0) ||
                             (survivor5X == survivor1X && survivor5Y == survivor1Y) ||
                             (survivor5X == survivor2X && survivor2Y == survivor2Y) ||
@@ -225,7 +173,6 @@ public class RescueMission {
                             (survivor5X == survivor4X && survivor4Y == survivor4Y)) {
 
                         survivor5X = (int) (Math.random() * sizeofarea);
-
                         survivor5Y = (int) (Math.random() * sizeofarea);
                     }
                 }
@@ -234,7 +181,6 @@ public class RescueMission {
                 for (int i = 1; i <= hazadrnumber; i++) {
 
                     int hazardX = (int) (Math.random() * sizeofarea);
-
                     int hazardY = (int) (Math.random() * sizeofarea);
 
 
@@ -291,15 +237,10 @@ public class RescueMission {
                 difficultyset = true;
 
                 System.out.println("\nGame config:");
-
                 System.out.println("Game area: " + sizeofarea + "x" + sizeofarea);
-
                 System.out.println("Survivors to find: " + survivornumber);
-
                 System.out.println("Hazards to avoid: " + hazadrnumber);
-
                 System.out.println("Movement cost: " + movementcost + " liters of fuel");
-
                 System.out.println("Rescue points: " + rescuepoints + " points per survivor");
                 System.out.println("Initial fuel: " + firstfuel + " liters");
             }
@@ -310,47 +251,31 @@ public class RescueMission {
             else if (selectmenu == 3) {
 
                 if (difficultyset == false) {
-
                     System.out.println("Please set game difficulty first!!");
 
                     continue;
                 }
-
-
-
                 int currentX = 0;
-
                 int currentY = 0;
-
-                int currentFuel = firstfuel;
-
-                int totalMoves = 0;
-
-                int hazardsEncountered = 0;
-
-                int survivorsRescued = 0;
+                int currentfuel = firstfuel;
+                int totalmove = 0;
+                int hazardsfound = 0;
+                int survivorsfound = 0;
 
                 int score = 0;
-
                 long startTime = System.currentTimeMillis();
 
                 System.out.println("\nGame started, First position is : (" + currentX + "," + currentY + ")");
-
                 System.out.println("Use W/A/S/D to move (W=to move Up, S=to move Down, A=to move Left, D=to move Right)");
 
 
-                while (currentFuel > 0 && survivorsRescued < survivornumber) {
+                while (currentfuel > 0 && survivorsfound < survivornumber) {
 
                     System.out.println("\nCurrent position: (" + currentX + "," + currentY + ")");
-
-                    System.out.println("Fuel remaining: " + currentFuel + " liters");
-
-                    System.out.println("Survivors found: " + survivorsRescued + "/" + survivornumber);
-
+                    System.out.println("Fuel remaining: " + currentfuel + " liters");
+                    System.out.println("Survivors found: " + survivorsfound + "/" + survivornumber);
                     System.out.println("Score: " + score);
-
                     System.out.println("\nEnter move (W/A/S/D):");
-
 
                     char move = scanner.nextLine().toUpperCase().charAt(0);
 
@@ -377,7 +302,6 @@ public class RescueMission {
 
                         continue;
                     }
-
                     if (newX < 0 || newX >= sizeofarea || newY < 0 || newY >= sizeofarea) {
 
                         System.out.println("Invalid move! You cannot move outside the game area.");
@@ -385,15 +309,13 @@ public class RescueMission {
                         continue;
                     }
 
-
                     currentX = newX;
 
                     currentY = newY;
 
-                    currentFuel -= movementcost;
+                    currentfuel -= movementcost;
 
-                    totalMoves++;
-
+                    totalmove++;
 
                     boolean survivorFound = false;
 
@@ -402,7 +324,7 @@ public class RescueMission {
 
                         score += rescuepoints;
 
-                        survivorsRescued++;
+                        survivorsfound++;
 
                         survivor1Found = 1;
                         survivorFound = true;
@@ -411,7 +333,7 @@ public class RescueMission {
 
                         score += rescuepoints;
 
-                        survivorsRescued++;
+                        survivorsfound++;
 
                         survivor2Found = 1;
                         survivorFound = true;
@@ -420,7 +342,7 @@ public class RescueMission {
 
                         score += rescuepoints;
 
-                        survivorsRescued++;
+                        survivorsfound++;
 
                         survivor3Found = 1;
                         survivorFound = true;
@@ -429,7 +351,7 @@ public class RescueMission {
 
                         score += rescuepoints;
 
-                        survivorsRescued++;
+                        survivorsfound++;
 
                         survivor4Found = 1;
                         survivorFound = true;
@@ -438,18 +360,15 @@ public class RescueMission {
 
                         score += rescuepoints;
 
-                        survivorsRescued++;
+                        survivorsfound++;
 
                         survivor5Found = 1;
                         survivorFound = true;
                     }
 
-
-
                     if (survivorFound) {
                         System.out.println("Survivor found! +" + rescuepoints + " points");
                     }
-
 
 
                     boolean hazardFound = false;
@@ -468,10 +387,7 @@ public class RescueMission {
 
                         hazardFound = true;
 
-                        hazardsEncountered++;
-
-
-
+                        hazardsfound++;
 
                         int hazardType = (int) (Math.random() * 4);
 
@@ -497,19 +413,13 @@ public class RescueMission {
                                 System.out.println("DANGER! Cold snap! -" + hazardCost + " liters of fuel");
                                 break;
                         }
-
-
-                        currentFuel -= hazardCost;
-
+                        currentfuel -= hazardCost;
 
                     }
 
-
-
-                    if (currentFuel <= 0) {
+                    if (currentfuel <= 0) {
 
                         System.out.println("\nOut of fuel! Mission failed!");
-
                         break;
                     }
                 }
@@ -519,19 +429,16 @@ public class RescueMission {
 
                 long endTime = System.currentTimeMillis();
                 int elapsedSeconds = (int)((endTime - startTime) / 1000);
-
                 int minutes = elapsedSeconds / 60;
-
                 int seconds = elapsedSeconds % 60;
 
-
                 System.out.println("\n************ GAME IS OVER ************");
-                if (survivorsRescued == survivornumber) {
+                if (survivorsfound == survivornumber) {
 
                     System.out.println("CONGRATULATIONS " + nameofuser + "Mission Succesful !");
 
 
-                    int bonusPoints = currentFuel / 10;
+                    int bonusPoints = currentfuel / 10;
 
                     score += bonusPoints;
 
@@ -543,54 +450,32 @@ public class RescueMission {
 
 
                 System.out.println("\nFinal Stats:");
-
                 System.out.println("Time taken while you played: " + minutes + " minutes " + seconds + " seconds");
-
-                System.out.println("Total moves: " + totalMoves);
-
-                System.out.println("Fuel consumed: " + (firstfuel - currentFuel) + " liters");
-
-                System.out.println("Survivors found: " + survivorsRescued + "/" + survivornumber);
-
-                System.out.println("Hazards encountered: " + hazardsEncountered);
-
+                System.out.println("Total moves: " + totalmove);
+                System.out.println("Fuel consumed: " + (firstfuel - currentfuel) + " liters");
+                System.out.println("Survivors found: " + survivorsfound + "/" + survivornumber);
+                System.out.println("Hazards encountered: " + hazardsfound);
                 System.out.println("Final score is: " + score + " points");
 
 
-
-
                 difficultyset = false;
-
                 survivor1Found = 0;
-
                 survivor2Found = 0;
-
                 survivor3Found = 0;
-
                 survivor4Found = 0;
-
                 survivor5Found = 0;
 
-
                 System.out.println("\nPress Enter to return to main menu...");
-
                 scanner.nextLine();
             }
             else if (selectmenu == 4) {
-
                 System.out.println("\nThanks for playing Rescue Mission");
-
-
-
                 System.out.println("Goodbye " + nameofuser + " See you later!");
-
 
                 gameisrunning = false;
             }
 
             else {
-
-
                 System.out.println("Invalid number! Please select a number between 1 and 4.");
 
             }
