@@ -1,8 +1,5 @@
 package org.example;
-
 import java.util.Scanner;
-
-
 public class RescueMission {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -10,11 +7,8 @@ public class RescueMission {
         String nameofuser = "Player";
 
         int selectmenu = 0;
-
         boolean difficultyset = false;
-
         boolean gameisrunning = true;
-
         int sizeofarea = 0;
         int survivornumber = 0;
         int hazadrnumber = 0;
@@ -361,15 +355,12 @@ public class RescueMission {
                         score += rescuepoints;
 
                         survivorsfound++;
-
                         survivor5Found = 1;
                         survivorFound = true;
                     }
-
                     if (survivorFound) {
                         System.out.println("Survivor found! +" + rescuepoints + " points");
                     }
-
 
                     boolean hazardFound = false;
 
@@ -386,12 +377,9 @@ public class RescueMission {
                             (currentX == hazard10X && currentY == hazard10Y)) {
 
                         hazardFound = true;
-
                         hazardsfound++;
 
                         int hazardType = (int) (Math.random() * 4);
-
-
                         int hazardCost = 0;
 
 
@@ -419,12 +407,10 @@ public class RescueMission {
 
                     if (currentfuel <= 0) {
 
-                        System.out.println("\nOut of fuel! Mission failed!");
+                        System.out.println("\nYou Are Out of fuel! Mission finished!");
                         break;
                     }
                 }
-
-
 
 
                 long endTime = System.currentTimeMillis();
@@ -438,17 +424,15 @@ public class RescueMission {
                     System.out.println("CONGRATULATIONS " + nameofuser + "Mission Succesful !");
 
 
-                    int bonusPoints = currentfuel / 10;
+                    int bonuspoints = currentfuel / 10;
 
-                    score += bonusPoints;
+                    score += bonuspoints;
 
-                    System.out.println("Bonus points for remaining fuels: +" + bonusPoints);
+                    System.out.println("Bonus points for remaining fuels: +" + bonuspoints);
                 } else {
 
                     System.out.println("Mission Failed! Better luck next time,Stay Determined " + nameofuser + "!");
                 }
-
-
                 System.out.println("\nFinal Stats:");
                 System.out.println("Time taken while you played: " + minutes + " minutes " + seconds + " seconds");
                 System.out.println("Total moves: " + totalmove);
@@ -456,7 +440,6 @@ public class RescueMission {
                 System.out.println("Survivors found: " + survivorsfound + "/" + survivornumber);
                 System.out.println("Hazards encountered: " + hazardsfound);
                 System.out.println("Final score is: " + score + " points");
-
 
                 difficultyset = false;
                 survivor1Found = 0;
