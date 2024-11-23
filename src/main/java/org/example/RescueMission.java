@@ -2,10 +2,11 @@ package org.example;
 import java.util.Scanner;
 public class RescueMission {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
         String nameofuser = "Player";
-
+    // konumlar belirlenmeden önce tanımlamak istedim
         int selectmenu = 0;
         boolean difficultyset = false;
         boolean gameisrunning = true;
@@ -50,9 +51,9 @@ public class RescueMission {
         int hazard9Y = -1;
         int hazard10X = -1;
         int hazard10Y = -1;
-
+// while döngüsü icinde ana menüyü yazdım
         while (gameisrunning) {
-            System.out.println("\n****** Welcome to Rescue Mission Game! *******");
+            System.out.println("\n------ Welcome to Rescue Mission Game! ------");
             System.out.println("Please select an choice:");
             System.out.println("1) Change your name");
             System.out.println("2) Set game difficulty");
@@ -61,7 +62,6 @@ public class RescueMission {
 
             selectmenu = scanner.nextInt();
             scanner.nextLine();
-
 
             if(selectmenu != 1 && selectmenu != 2 && selectmenu != 3 && selectmenu != 4 ) {
                 System.out.println("Invalid number. Please enter a number between 1 - 4.");
@@ -81,7 +81,7 @@ public class RescueMission {
                 System.out.println("H) Hard");
 
                 char difficulty = scanner.nextLine().toUpperCase().charAt(0);
-
+// zorluk secimlerine göre oyun alanı ve benzeri şeyler belirlendi
                 if (difficulty == 'E') {
                     sizeofarea = 10;
                     survivornumber = 3;
@@ -114,6 +114,7 @@ public class RescueMission {
 
                 survivor1X = (int) (Math.random() * sizeofarea);
                 survivor1Y = (int) (Math.random() * sizeofarea);
+                // bu while kısımlarında do while kullanımıda yapabilirdim fakat while kullanarak konum belirlemeyi tercih ettim.
                 while (survivor1X == 0 && survivor1Y == 0) {
                     survivor1X = (int) (Math.random() * sizeofarea);
                     survivor1Y = (int) (Math.random() * sizeofarea);
@@ -171,7 +172,7 @@ public class RescueMission {
                     }
                 }
 
-
+            // zorlukla belirlenen hazard sayısına eşit olana kdr i artıcak ve alttaki switchte işimize yarıcak bu yüzden for loop kullandım
                 for (int i = 1; i <= hazadrnumber; i++) {
 
                     int hazardX = (int) (Math.random() * sizeofarea);
@@ -182,7 +183,7 @@ public class RescueMission {
                     boolean validPosition = false;
 
 
-                    while (!validPosition) {
+                    while (validPosition == false) {
 
                         validPosition = true;
 
@@ -229,7 +230,7 @@ public class RescueMission {
 
 
                 difficultyset = true;
-
+               // oyundaki görevi ve yakıt benzeri şeyler tanımlandıktan sonra kullanıcıya bildirdim
                 System.out.println("\nGame config:");
                 System.out.println("Game area: " + sizeofarea + "x" + sizeofarea);
                 System.out.println("Survivors to find: " + survivornumber);
@@ -243,12 +244,12 @@ public class RescueMission {
 
 
             else if (selectmenu == 3) {
-
+            // zorluk secilmeden oyun secilmeye calışırsa diye if kullandım
                 if (difficultyset == false) {
                     System.out.println("Please set game difficulty first!!");
 
                     continue;
-                }
+                } // alt satırda bulunan survivor ve hazard 0landı ve başlangıc konuumu belirlendi ve oyuna başlamak icin startTime ile başlangıc zamanı belirlendi
                 int currentX = 0;
                 int currentY = 0;
                 int currentfuel = firstfuel;
@@ -257,7 +258,7 @@ public class RescueMission {
                 int survivorsfound = 0;
 
                 int score = 0;
-                long startTime = System.currentTimeMillis();
+                long startTime   = System.currentTimeMillis();
 
                 System.out.println("\nGame started, First position is : (" + currentX + "," + currentY + ")");
                 System.out.println("Use W/A/S/D to move (W=to move Up, S=to move Down, A=to move Left, D=to move Right)");
@@ -270,14 +271,14 @@ public class RescueMission {
                     System.out.println("Survivors found: " + survivorsfound + "/" + survivornumber);
                     System.out.println("Score: " + score);
                     System.out.println("\nEnter move (W/A/S/D):");
-
+                   // büyük harf veya kücük harf farketmesin diye .toUpperCase() kullandım
                     char move = scanner.nextLine().toUpperCase().charAt(0);
 
 
                     int newX = currentX;
 
                     int newY = currentY;
-
+                  // hareket tuşlarının değiştirdigi x y eksen değerleri
                     if (move == 'W') {
 
                         newY = currentY + 1;
@@ -292,13 +293,13 @@ public class RescueMission {
                         newX = currentX + 1;
                     } else {
 
-                        System.out.println("Invalid key! Use W/A/S/D to move.");
+                        System.out.println("Invalid key!! Use W/A/S/D to move (W=to move Up, S=to move Down, A=to move Left, D=to move Right).");
 
                         continue;
                     }
                     if (newX < 0 || newX >= sizeofarea || newY < 0 || newY >= sizeofarea) {
 
-                        System.out.println("Invalid move! You cannot move outside the game area.");
+                        System.out.println("Invalid move!! You cannot move outside the game area.");
 
                         continue;
                     }
@@ -313,7 +314,7 @@ public class RescueMission {
 
                     boolean survivorFound = false;
 
-
+                   // survivor bulma kısmı
                     if (currentX == survivor1X && currentY == survivor1Y && survivor1Found == 0) {
 
                         score += rescuepoints;
@@ -359,7 +360,7 @@ public class RescueMission {
                         survivorFound = true;
                     }
                     if (survivorFound) {
-                        System.out.println("Survivor found! +" + rescuepoints + " points");
+                        System.out.println("Survivor found!! +" + rescuepoints + " points");
                     }
 
                     boolean hazardFound = false;
@@ -378,27 +379,27 @@ public class RescueMission {
 
                         hazardFound = true;
                         hazardsfound++;
-
+                     // rastgele hazard type belirlendi ve switchte farklı caselere farklı tipler yazıldı
                         int hazardType = (int) (Math.random() * 4);
                         int hazardCost = 0;
 
-
+                     // her hazardın farklı bir fuel kaybettirme değeri olsun diye math.random kullandım
                         switch (hazardType) {
                             case 0:
                                 hazardCost = (int) (Math.random()*(7)+2);
-                                System.out.println("DANGER! Wild animal encountered! -" + hazardCost + " liters of fuel");
+                                System.out.println("DANGER! Wild animal attacked!! -" + hazardCost + " liters of fuel");
                                 break;
                             case 1:
                                 hazardCost = (int) (Math.random() * (6) + 10);
-                                System.out.println("DANGER! Blocked path ahead! -" + hazardCost + " liters of fuel");
+                                System.out.println("DANGER! Blocked path ahead!! -" + hazardCost + " liters of fuel");
                                 break;
                             case 2:
                                 hazardCost = (int) (Math.random() * (4) + 2);
-                                System.out.println("DANGER! Snow drift! -" + hazardCost + " liters of fuel");
+                                System.out.println("DANGER! Snowslip!! -" + hazardCost + " liters of fuel");
                                 break;
                             case 3:
                                 hazardCost = (int) (Math.random() * (5) + 5);
-                                System.out.println("DANGER! Cold snap! -" + hazardCost + " liters of fuel");
+                                System.out.println("DANGER! Cold snap!! -" + hazardCost + " liters of fuel");
                                 break;
                         }
                         currentfuel -= hazardCost;
@@ -412,12 +413,12 @@ public class RescueMission {
                     }
                 }
 
-
+            // oynanan toplam süre hesaplatıldı
                 long endTime = System.currentTimeMillis();
                 int elapsedSeconds = (int)((endTime - startTime) / 1000);
                 int minutes = elapsedSeconds / 60;
                 int seconds = elapsedSeconds % 60;
-
+               // oyun sonu ekranını yazdım ve oyun sonundaki bilgileri verdim
                 System.out.println("\n************ GAME IS OVER ************");
                 if (survivorsfound == survivornumber) {
 
@@ -448,23 +449,19 @@ public class RescueMission {
                 survivor4Found = 0;
                 survivor5Found = 0;
 
-                System.out.println("\nPress Enter to return to main menu...");
+                System.out.println("\nPress Enter to return to main menu.");
                 scanner.nextLine();
             }
             else if (selectmenu == 4) {
                 System.out.println("\nThanks for playing Rescue Mission");
-                System.out.println("Goodbye " + nameofuser + " See you later!");
+                System.out.println("Goodbye " + nameofuser + " See you later!!!");
 
                 gameisrunning = false;
             }
-
             else {
-                System.out.println("Invalid number! Please select a number between 1 and 4.");
+                System.out.println("Invalid number. Please select a number between 1 and 4.");
 
             }
         }
-
-
-
     }
 }
